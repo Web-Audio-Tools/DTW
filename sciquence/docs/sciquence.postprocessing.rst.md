@@ -1,13 +1,11 @@
-sciquence.postprocessing
-========================
+# sciquence.postprocessing
 
-Binarization
-------------
+## Binarization
 
 ::: {.currentmodule}
 sciquence.postprocessing
 :::
 
 ::: {.autosummary toctree=""}
-ClasswiseBinarizer binarize\_classwise
+ClasswiseBinarizer binarize_classwise
 :::

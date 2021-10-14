@@ -1,11 +1,9 @@
-sciquence.data\_structures
-==========================
+# sciquence.data_structures
 
-Text to vector
---------------
+## Text to vector
 
 ::: {.currentmodule}
-sciquence.data\_structures
+sciquence.data_structures
 :::
 
 ::: {.autosummary toctree=""}

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide {
+            display: none !important;
+        }
+        
+        ng\:form {
+            display: block;
+        }
+        
+        .ng-animate-start {
+            clip: rect(0, auto, auto, 0);
+            -ms-zoom: 1.0001;
+        }
+        
+        .ng-animate-active {
+            clip: rect(-1px, auto, auto, 0);
+            -ms-zoom: 1;
+        }
+    </style>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>PreFabAcademy - Praveen Sridhar</title>
+    <meta name="generator" content="Bootply">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <link href="js/bootstrap.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <link rel="apple-touch-icon" href="http://www.bootply.com/bootstrap/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://www.bootply.com/bootstrap/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://www.bootply.com/bootstrap/img/apple-touch-icon-114x114.png">
+
+
+
+
+
+
+
+
+
+
+    <!-- CSS code from Bootply.com editor -->
+
+    <style type="text/css">
+        /*A Bootstrap 3.1 affix sidebar templatefrom http://bootply.comThis CSS code should follow the 'bootstrap.css'in your HTML file.license: MITauthor: bootply.com*/
+        
+        body {
+            padding-top: 50px;
+            font-size: 200%;
+            font-family: Georgia, "Times New Roman", Serif;
+        }
+        
+        #masthead {
+            min-height: 250px;
+        }
+        
+        #masthead h1 {
+            font-size: 30px;
+            line-height: 1;
+            padding-top: 20px;
+        }
+        
+        #masthead .well {
+            margin-top: 8%;
+        }
+        
+        @media screen and (min-width: 768px) {
+            #masthead h1 {
+                font-size: 50px;
+            }
+        }
+        
+        .navbar-bright {
+            background-color: #111155;
+            color: #fff;
+        }
+        
+        .affix-top,
+        .affix {
+            position: static;
+        }
+        
+        @media (min-width: 979px) {
+            #sidebar.affix-top {
+                position: static;
+                margin-top: 30px;
+                width: 228px;
+            }
+            #sidebar.affix {
+                position: fixed;
+                top: 70px;
+                width: 228px;
+            }
+        }
+        
+        #sidebar li.active {
+            border: 0 #eee solid;
+            border-right-width: 5px;
+        }
+        
+        .img-zoom {
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            -ms-transition: all .2s ease-in-out;
+        }
+        
+        .transition {
+            -webkit-transform: scale(2);
+            -moz-transform: scale(2);
+            -o-transform: scale(2);
+            transform: scale(2);
+        }
+    </style>
+</head>
+
+<!-- HTML code from Bootply.com editor -->
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="index.html" class="navbar-brand">Praveen Sridhar</a> </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li> <a href="index.html">Introduction and Setup Week</a> </li>
+                    <li> <a href="machines_week.html">Fab Machines Week</a> </li>
+                    <li> <a href="design_project_week.html">Project Design Week</a> </li>
+                    <li> <a href="electronics_week.html">Electronics Week</a> </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div id="masthead">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2>Electronics Week</h2>
+                    <h1> Pre-FabAcademy @ FabLab Kochi 2015           <p class="lead">Preparing to make "almost" anything!</p>          </h1> </div>
+                <div class="col-md-5">
+                    <div class="well well-lg">
+                        <div class="row">
+                            <div class="col-sm-6"> <img src="img/FabLab-Logo.png" width="150" class="img-responsive"> </div>
+                            <div class="col-sm-6"> <img src="img/KeralaStartupMissionLogo.jpg" width="150" class="img-responsive"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/container-->
+    </div>
+    <!--/masthead-->
+    <!--main-->
+    <div class="container">
+        <div class="row">
+            <!--left-->
+            <div class="col-md-3" id="leftCol">
+                <ul class="nav nav-stacked affix-top" id="sidebar">
+                    <li><a href="#sec0">Introduction</a></li>
+                    <li><a href="#sec1">Day 1</a></li>
+                    <li><a href="#sec2">Day 2</a></li>
+                    <li><a href="#sec3">Day 3</a></li>
+                    <li><a href="#sec4">Day 4 and 5</a></li>
+                    <!--                    <li><a href="#sec4">Day 5</a></li>-->
+
+                </ul>
+            </div>
+            <!--/left-->
+            <!--right-->
+            <div class="col-md-9">
+                <h2 id="sec0">Week 4 : The world of Electronics</h2>
+                <p>Week 4 involves getting to know about Electronics design, production and programming.</p>
+                <hr>
+                <p>Week 4 was all about electronics design and programming. We were guided through the software setup for kokopelli, the software that allows to design circuits using python code! The weeks activities included installing and getting familiar with :
+                    <ul>
+                        <li>Installation and working of Kokopelli software</li>
+                        <li>Adding LED and Button to Neil's HelloFTDI board</li>
+                        <li>Milling Hello FTDI using Modella</li>
+                        <li>Programming Hello FTDI</li>
+                    </ul>
+                </p>
+                <h2 id="sec1">Day 1</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Day 1 started off with Francisco going through the FabLab presentation, where he explained the need for digital manufacturing and how our choices are impacting the dumping of tonnes of waste due to mass production.</p>
+                        <p>We proceeded with installation of Kokopelli, the software which uses code to produce electronic circuit design. It revolves around the concept of adding programmability into every layer of digital fabrication, and research is going on to even make matter programmable.
+                        </p>
+                        <p>The installation proved to be a task in itself. I used the VirtualBox Ubuntu setup that was done in the first week. I downloaded the <a href="#">koko_retro.zip</a> file which contained the source code for the older version of kokopelli since Neil’s part library works only with the old version. To compile kokopelli, the following steps were followed :
+                            <pre><code>cd koko_retro
+make clean
+make fab</code></pre>
+                        </p>
+                        <p>After successful compiling, to open kokopelli, i run :
+                            <pre><code>./kokopelli -r</code></pre>
+                        </p>
+                        <p>However, the program didn't run as expected and showed a blank view even though a sample program for a circle was pre-loaded. I tried make clean, make fab again to no avail. I finally tracked down the problem to be a missing library and it worked fine after I did some pip install taking cue from the <a href="#">github page</a> of kokopelli.
+                        </p>
+                        <p>Then Francisco showed how Neil had made the entire inventory library in code. He even programmed the Alphabets instead of using a font!</p>
+                        <p>We opened Neil's hello.ftdi circuit and added an led and button to it, following this <a href="#">excellent tutorial</a> on kokopelli by Francisco. The whole exercise opened my eyes to the impact programmability has. Just changing a few parameters, and adding some components means easy and fast customisation of circuits. Here is the screenshot of my edits of Neil’s code along with the final circuit with button and led.</p>
+                    </div>
+                    <div class="col-md-12"><img src="img/w4/kokopelli_board.png" class="img-responsive"></div>
+
+                    <div class="col-md-12">
+                        <p>
+                            <b>Downloadable Files :</b>
+                            <a href="img/w4/hello.ftdi.44.with.Led.Switch.cad">hello.ftdi.44.with.Led.Switch.cad</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!--
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>Hello.</h2></div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue. </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Hello.</h3></div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue. </div>
+                        </div>
+                    </div>
+                </div>
+-->
+                <hr>
+                <h2 id="sec2">Day 2</h2>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <p>Day 2 was for actually milling out the circuit that we had built yesterday using Kokopelli. Since there is only one Roland Modella available, we took turns in milling our boards. While I was waiting for my turn, I thought of tweaking and adding some more components to it. First I looked into the available sensors in the lab. I found a light sensor, which was a PHOTODARLINGTON NPN CLR PLCC-2. I thought it would be great if I could add this as an ambient light sensor to switch on the LED when it was dark and switch off the LED when it was bright. This would allow me to learn more about analog sensors along with the Push-Button, which is a digital Sensor. I looked into the <a href="img/w4/OP580DA.pdf">datasheet</a> of the Phototransistor and found that adding it to the existing circuit should be very easy.</p>
+                        <div class="col-md-6">
+                            <div class="col-md-6"><img src="img/w4/photosensor.jpg" alt="image of sensor to be added" class="img-responsive"></div>
+
+                        </div>
+                        <p>I drew a rough circuit diagram on paper to visualise the connections needed. Then one by one I placed the components and joined them to the existing circuit defining wires between VCC, Sensor terminals, Ground and one of the IC analog input.</p>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Here is the final circuit I obtained.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="img/w4/hello_ftdi_btn_light_sensor_circuit.png" class="img-responsive">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Next I milled the board using fab modules on the Modella</p>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="img/w4/fab_ftdi_mill.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-12">
+                        <p>
+                            <b>Downloadable Files :</b>
+                            <br>
+                            <a href="img/w4/hello.ftdi.44.light.sensor.cad">hello.ftdi.44.light.sensor.cad</a>
+                            <br>
+                            <a href="img/w4/hello_ftdi_btn_light_sensor_traces.png">hello_ftdi_btn_light_sensor_traces.png</a>
+                            <br>
+                            <a href="img/w4/hello_ftdi_btn_light_sensor_cutout.png">hello_ftdi_btn_light_sensor_cutout.png</a>
+                            <br>
+                            <a href="img/w4/hello_ftdi_btn_light_sensor_circuit.png">hello_ftdi_btn_light_sensor_circuit.png</a>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <h2 id="sec3">Day 3</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Now it was time to solder the components to the board milled yesterday. I prepared a component requirement sheet and sourced the discrete componenets from the inventory.</p>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="img/w4/solder.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-md-12">
+                        <p>After milling the circuit following the procedure learnt in week 2, it was time to program the board. I set up the Arduino IDE to be able to program the Attiny by following the instructions <a href="http://highlowtech.org/?p=1695">here.</a> Although not all the functionality of the Arduino language is not available for Attiny chips, the basic analog and digital Read/Write works well and good.
+                        </p>
+                        <p>Following the tutorial, I set up the crystal as 20MHz, IC as Attiny44 and burned the bootloader.
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="img/w4/arduinoBoot.png" class="img-responsive">
+                    </div>
+                    <div class="col-md-12">
+                        <p>The first task was to light the LED with the push of the button. I wrote the code for the same. I also tweaked the code to sense the ambient light and control the LED accordingly</p>
+                        <pre><code>int LED = 8;
+int LIGHT_SENSOR = 2;
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(LED, OUTPUT);
+  pinMode(LIGHT_SENSOR, INPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  if(analogRead(LIGHT_SENSOR)>500)
+    digitalWrite(LED, HIGH);
+  else
+    digitalWrite(LED, LOW);
+}</code></pre>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="img/w4/sensor_led.gif" class="img-responsive">
+                    </div>
+
+                </div>
+
+
+                <h2 id="sec4">Day 4 and 5</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>The second task was to interface with the serial monitor such that the LED can be controlled by giving a 0 or 1 from the serial link. I wrote the code for the same. I ran into a problem. When giving a 1, the LED lit up for a very very short amount of time that it seemed as if no change occured. Later I fixed it by adding a delay of 500 milliseconds</p>
+                        <pre><code>int LED = 8;
+int c;
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(0, 1); // RX, TX
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED,OUTPUT);
+  mySerial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  c = mySerial.read();
+  if(c=='1')
+    digitalWrite(LED,HIGH);
+    delay(500);
+  if(c=='2')
+    digitalWrite(LED,LOW);
+    delay(500);
+}</code></pre>
+                        <p>Next I wrote code for sensing if the ambient light was bright or dark and accordinly switch the LED on and off as well as simultaneously writing to the serial port.
+                            <pre><code>
+int LED = 8;
+int LIGHT_SENSOR = 2;
+int c;
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(0, 1); // RX, TX
+
+void setup() {
+  // Open serial communications and wait for port to open:
+  //Serial.begin(57600);
+  //while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+ // }
+  pinMode(LIGHT_SENSOR, INPUT);
+  pinMode(LED,OUTPUT);
+ // Serial.println("Goodnight moon!");
+
+  // set the data rate for the SoftwareSerial port
+  mySerial.begin(9600);
+}
+
+void loop() { // run over and overz
+  if (analogRead(LIGHT_SENSOR)>950) 
+  {
+    mySerial.write("Dark\n");
+    digitalWrite(LED, HIGH);
+  }
+  else
+  {
+    mySerial.write("Bright\n");
+    digitalWrite(LED, LOW);
+  }
+  delay(100);
+}
+</code></pre>
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <img src="img/w4/serial.gif" class="img-responsive">
+                    </div>
+                </div>
+
+
+                <hr>
+                <!--
+                <h2 id="sec5">Day 5</h2>
+<p>On Day 5, Luciano came along with our second instructor Francisco, who would be engaging us in the last week of the Pre-FabAcademy. Luciano continued with the previous day's topic of CAD Design with Rhino. An assignment was given the previous day and the submission was discussed. I tried out the assignment in the class, trying to catch up yesterday's work.</p>
+<p>Francisco introduced yet another CAD software called Antimony. He explained the key difference between Antimony and other CAD software. Antimony is the only software that gives exact geometric representation of a 3D model instead of finite element approximations. The distinguishing features of Antimony are :
+    <ul>
+        <li>Geometric Function representation</li>
+        <li>Hierarchical Design</li>
+        <li>Parametric Design</li>
+    </ul>
+</p>
+<div class="row">
+    <div class="col-md-6"><img src="img/w1d1/antimony.png" class="img-responsive img-zoom"></div>
+    <div class="col-md-6">
+        <p>I liked Antimony for its simplicity and focus on mathematical accuracy. The software though not suited for aethetic/organic design, is very powerful for creating mechanical component design. Francisco showed us a demo for a bit-holder in Antimony. I went ahead and made a cylindrical version of the bit-holder.</p>
+    </div>
+    <p></p>
+</div>
+<p>I caught up with yesterday's Rhino with some help from Sibu, one of the Pre-FabAcademy participants. I plan to look more into Rhino during the weekend.</p>-->
+
+
+                <hr>
+                <!--                <h4><a href="http://www.bootply.com/Gygh9swISB">Edit on Bootply</a></h4>-->
+                <hr> </div>
+            <!--/right-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+    <script src="js/analytics.js" async=""></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
+
+    <script type="text/javascript" src="js/angular.js"></script>
+
+
+
+    <!-- JavaScript jQuery code from Bootply.com editor  -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /* activate sidebar */
+            $('#sidebar').affix({
+                offset: {
+                    top: 235
+                }
+            }); /* activate scrollspy menu */
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+            $body.scrollspy({
+                target: '#leftCol',
+                offset: navHeight
+            }); /* smooth scrolling sections */
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 50
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.img-zoom').hover(function () {
+                $(this).addClass('transition');
+
+            }, function () {
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-40413119-1', 'bootply.com');
+        ga('send', 'pageview');
+    </script>
+
+
+
+</body>
+
+</html>

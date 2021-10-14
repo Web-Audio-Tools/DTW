@@ -13,10 +13,11 @@ for example.
 ## Install
 
 Several quick start options are available:
-* [Download the latest release](https://github.com/GordonLesti/dynamic-time-warping/releases/latest).
-* Clone the repo: `git clone https://github.com/GordonLesti/dynamic-time-warping.git`.
-* Install with [npm](https://www.npmjs.com/): `npm install dynamic-time-warping`.
-* Install with [Bower](http://bower.io): `bower install dynamic-time-warping`.
+
+- [Download the latest release](https://github.com/GordonLesti/dynamic-time-warping/releases/latest).
+- Clone the repo: `git clone https://github.com/GordonLesti/dynamic-time-warping.git`.
+- Install with [npm](https://www.npmjs.com/): `npm install dynamic-time-warping`.
+- Install with [Bower](http://bower.io): `bower install dynamic-time-warping`.
 
 Include script (unless you are packaging scripts somehow else):
 
@@ -34,10 +35,10 @@ The plugin can also be loaded as AMD or Node module.
 between two objects and returns a float.
 
 ```javascript
-var ser1 = [ 9, 93, 15, 19, 24 ];
-var ser2 = [ 31, 97, 81, 82, 39 ];
-var distFunc = function( a, b ) {
-    return Math.abs( a - b );
+var ser1 = [9, 93, 15, 19, 24];
+var ser2 = [31, 97, 81, 82, 39];
+var distFunc = function (a, b) {
+  return Math.abs(a - b);
 };
 
 var dtw = new DynamicTimeWarping(ser1, ser2, distFunc);
@@ -67,7 +68,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-``` bash
+```bash
 $ grunt
 ```
 
@@ -93,7 +94,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-travis]: https://img.shields.io/travis/GordonLesti/dynamic-time-warping/master.svg?style=flat-square
 [ico-coverall]: https://img.shields.io/coveralls/GordonLesti/dynamic-time-warping/master.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/npm/dt/dynamic-time-warping.svg?style=flat-square
-
 [link-npm]: https://www.npmjs.com/package/dynamic-time-warping
 [link-travis]: https://travis-ci.org/GordonLesti/dynamic-time-warping
 [link-coveralls]: https://coveralls.io/r/GordonLesti/dynamic-time-warping

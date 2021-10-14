@@ -1,6 +1,4 @@
-
 # Dynamic Time Warping:
-
 
 The phrase "dynamic time warping," at first read, might evoke images of Marty McFly driving his DeLorean at 88 MPH in the *Back to the Future* series. Alas, dynamic time warping does not involve time travel; instead, it's a technique used to dynamically compare time series data when the time indices between comparison data points do not sync up perfectly.
 
@@ -8,20 +6,19 @@ As we'll explore below, one of the most salient uses of dynamic time warping is 
 
 Dynamic time warping is a useful, powerful technique that can be applied across many different domains. Once you understand the concept of dynamic time warping, it's easy to see examples of its applications in daily life, and its exciting future applications. Consider the following uses:
 
--   *Financial markets* -- comparing stock trading data over similar time frames, even if they do not match up perfectly. For example, comparing monthly trading data for February (28 days) and March (31 days).
--   *Wearable fitness trackers* -- more accurately calculating a walker's speed and the number of steps, even if their speed varied over time.
--   *Route calculation* -- calculating more accurate information about a driver's ETA, if we know something about their driving habits (for example, they drive quickly on straightaways but take more time than average to make left turns).
+- *Financial markets* -- comparing stock trading data over similar time frames, even if they do not match up perfectly. For example, comparing monthly trading data for February (28 days) and March (31 days).
+- *Wearable fitness trackers* -- more accurately calculating a walker's speed and the number of steps, even if their speed varied over time.
+- *Route calculation* -- calculating more accurate information about a driver's ETA, if we know something about their driving habits (for example, they drive quickly on straightaways but take more time than average to make left turns).
 
 Data scientists, data analysts, and anyone working with time series data should become familiar with this technique, given that perfectly aligned time-series comparison data can be as rare to see in the wild as perfectly "tidy" data.
 
 In this blog series, we will explore:
 
--   The basic principles of dynamic time warping
--   Running dynamic time warping on sample audio data
--   Running dynamic time warping on sample sales data using MLflow
+- The basic principles of dynamic time warping
+- Running dynamic time warping on sample audio data
+- Running dynamic time warping on sample sales data using MLflow
 
-Dynamic Time Warping
---------------------
+## Dynamic Time Warping
 
 The objective of time series comparison methods is to produce a *distance metric* between two input time series. The similarity or dissimilarity of two-time series is typically calculated by converting the data into vectors and calculating the Euclidean distance between those points in vector space.
 
@@ -43,45 +40,45 @@ Two-time series (the base time series and new time series) are considered simila
 
 Traditionally, dynamic time warping is applied to audio clips to determine the similarity of those clips.  For our example, we will use four different audio clips based on two different quotes from a TV show called [The Expanse](https://www.imdb.com/title/tt3230854/). There are four audio clips (you can listen to them below but this is not necessary) -- three of them (clips 1, 2, and 4) are based on the quote:
 
-> *"Doors and corners, kid. That's where they get you."*
+> _"Doors and corners, kid. That's where they get you."_
 
 and one clip (clip 3) is the quote
 
-> *"You walk into a room too fast, the room eats you."*
+> _"You walk into a room too fast, the room eats you."_
 
 |\
 Doors and Corners, Kid.\
 That's where they get you. [v1]
 
- |\
+|\
 Doors and Corners, Kid.\
 That's where they get you. [v2]
 
- |
+|
 |\
 You walk into a room too fast,\
 the room eats you.
 
- |\
+|\
 Doors and Corners, Kid.\
 That's where they get you [v3]
 
- |
+|
 
 Quotes are from [The Expanse](https://www.amazon.com/The-Expanse-Season-1/dp/B018BZ3SCM)
 
 Below are visualizations using `matplotlib` of the four audio clips:
 
--   Clip 1: This is our base time series based on the quote "*Doors and corners, kid. That's where they get you"*.
--   Clip 2: This is a new time series [v2] based on clip 1 where the intonation and speech pattern is extremely exaggerated.
--   Clip 3: This is another time series that's based on the quote *"You walk into a room too fast, the room eats you."* with the same intonation and speed as Clip 1.
--   Clip 4: This is a new time series [v3] based on clip 1 where the intonation and speech pattern is similar to clip 1.
+- Clip 1: This is our base time series based on the quote "_Doors and corners, kid. That's where they get you"_.
+- Clip 2: This is a new time series [v2] based on clip 1 where the intonation and speech pattern is extremely exaggerated.
+- Clip 3: This is another time series that's based on the quote *"You walk into a room too fast, the room eats you."* with the same intonation and speed as Clip 1.
+- Clip 4: This is a new time series [v3] based on clip 1 where the intonation and speech pattern is similar to clip 1.
 
 [![](https://databricks.com/wp-content/uploads/2019/04/four-audio-clips.png)](https://databricks.com/wp-content/uploads/2019/04/four-audio-clips.png)
 
 The code to read these audio clips and visualize them using matplotlib can be summarized in the following code snippet.
 
-from scipy.io import wavfile from matplotlib import pyplot as plt from matplotlib.pyplot import figure # Read stored audio files for comparison fs, data = wavfile.read("/dbfs/folder/clip1.wav")  # Set plot style plt.style.use('seaborn-whitegrid')  # Create subplots ax = plt.subplot(2,  2,  1) ax.plot(data1, color='#67A0DA')  ...  # Display created figure fig=plt.show() display(fig)
+from scipy.io import wavfile from matplotlib import pyplot as plt from matplotlib.pyplot import figure # Read stored audio files for comparison fs, data = wavfile.read("/dbfs/folder/clip1.wav") # Set plot style plt.style.use('seaborn-whitegrid') # Create subplots ax = plt.subplot(2, 2, 1) ax.plot(data1, color='#67A0DA') ... # Display created figure fig=plt.show() display(fig)
 
 The full code-base can be found in the notebook [Dynamic Time Warping Background](https://pages.databricks.com/rs/094-YMS-629/images/dynamic-time-warping-background.html).
 
@@ -99,22 +96,22 @@ With dynamic time warping, we can shift time to allow for a time series comparis
 
 For our time series comparison, we will use the `[fastdtw](https://pypi.org/project/fastdtw/)` PyPi library; the instructions to install PyPi libraries within your Databricks workspace can be found here: [Azure](https://docs.microsoft.com/en-us/azure/databricks/libraries/#pypi-libraries) | [AWS](https://docs.databricks.com/user-guide/libraries.html#pypi-libraries).  By using fastdtw, we can quickly calculate the distance between the different time series.
 
-from fastdtw import fastdtw # Distance between clip 1 and clip 2 distance = fastdtw(data_clip1, data_clip2)[0]  print("The distance between the two clips is  %s"  % distance)
+from fastdtw import fastdtw # Distance between clip 1 and clip 2 distance = fastdtw(data_clip1, data_clip2)[0] print("The distance between the two clips is %s" % distance)
 
 The full code-base can be found in the notebook [Dynamic Time Warping Background](https://pages.databricks.com/rs/094-YMS-629/images/dynamic-time-warping-background.html).
 
-| Base | Query | Distance |
-| --- | --- | --- |
+| Base   | Query  | Distance    |
+| ------ | ------ | ----------- |
 | Clip 1 | Clip 2 | 480148446.0 |
-|  | Clip 3 | 310038909.0 |
-|  | Clip 4 | 293547478.0 |
+|        | Clip 3 | 310038909.0 |
+|        | Clip 4 | 293547478.0 |
 
 [![](https://databricks.com/wp-content/uploads/2019/04/dtw-clip1-clip4.png)](https://databricks.com/wp-content/uploads/2019/04/dtw-clip1-clip4.png)
 
 Some quick observations:
 
--   As noted in the preceding graph, Clips 1 and 4 have the shortest distance as the audio clips have the same words and intonations
--   The distance between Clips 1 and 3 is also quite short (though longer than when compared to Clip 4) even though they have different words, they are using the same intonation and speed.
--   Clips 1 and 2 have the longest distance due to the extremely exaggerated intonation and speed even though they are using the same quote.
+- As noted in the preceding graph, Clips 1 and 4 have the shortest distance as the audio clips have the same words and intonations
+- The distance between Clips 1 and 3 is also quite short (though longer than when compared to Clip 4) even though they have different words, they are using the same intonation and speed.
+- Clips 1 and 2 have the longest distance due to the extremely exaggerated intonation and speed even though they are using the same quote.
 
 As you can see, with dynamic time warping, one can ascertain the similarity of two different time series.

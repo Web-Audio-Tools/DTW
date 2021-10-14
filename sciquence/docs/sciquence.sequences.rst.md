@@ -1,8 +1,6 @@
-sciquence.sequences
-===================
+# sciquence.sequences
 
-Cutting
--------
+## Cutting
 
 ::: {.currentmodule}
 sciquence.sequences
@@ -12,37 +10,32 @@ sciquence.sequences
 seq nseq pseq specseq seqi nseqi pseqi specseqi chunk
 :::
 
-Comparing
----------
+## Comparing
 
 ::: {.autosummary toctree=""}
-lseq\_equal shapes\_equal size\_equal
+lseq_equal shapes_equal size_equal
 :::
 
-Sampling
---------
+## Sampling
 
 ::: {.autosummary toctree=""}
-random\_slice
+random_slice
 :::
 
-Sorting
--------
+## Sorting
 
 ::: {.autosummary toctree=""}
-parallel\_sort
+parallel_sort
 :::
 
-Sliding window
---------------
+## Sliding window
 
 ::: {.autosummary toctree=""}
 wingen
 :::
 
-Searching
----------
+## Searching
 
 ::: {.autosummary toctree=""}
-mslc longest\_segment max\_avg\_seq
+mslc longest_segment max_avg_seq
 :::

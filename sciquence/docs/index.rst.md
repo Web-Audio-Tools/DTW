@@ -1,5 +1,4 @@
-Welcome to sciquence\'s documentation!
-======================================
+# Welcome to sciquence\'s documentation!
 
 ::: {.toctree maxdepth="2" caption="User documentation"}
 intro installation
@@ -13,9 +12,8 @@ api
 tutorials
 :::
 
-Indices and tables
-==================
+# Indices and tables
 
--   `genindex`{.interpreted-text role="ref"}
--   `modindex`{.interpreted-text role="ref"}
--   `search`{.interpreted-text role="ref"}
+- `genindex`{.interpreted-text role="ref"}
+- `modindex`{.interpreted-text role="ref"}
+- `search`{.interpreted-text role="ref"}

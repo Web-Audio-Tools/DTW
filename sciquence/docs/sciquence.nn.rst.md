@@ -1,25 +1,20 @@
-sciquence.nn package
-====================
+# sciquence.nn package
 
-Subpackages
------------
+## Subpackages
 
 ::: {.toctree}
 sciquence.nn.theano
 :::
 
-Submodules
-----------
+## Submodules
 
-sciquence.nn.nn\_utils module
------------------------------
+## sciquence.nn.nn_utils module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
-sciquence.nn.nn\_utils
+sciquence.nn.nn_utils
 :::
 
-Module contents
----------------
+## Module contents
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence.nn

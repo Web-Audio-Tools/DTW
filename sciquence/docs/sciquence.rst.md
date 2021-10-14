@@ -1,54 +1,45 @@
-sciquence package
-=================
+# sciquence package
 
-Subpackages
------------
+## Subpackages
 
 ::: {.toctree}
 sciquence.dtw sciquence.nn sciquence.sequences
-sciquence.text\_processing sciquence.windows
+sciquence.text_processing sciquence.windows
 :::
 
-Submodules
-----------
+## Submodules
 
-sciquence.base module
----------------------
+## sciquence.base module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence.base
 :::
 
-sciquence.load\_utils module
-----------------------------
+## sciquence.load_utils module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
-sciquence.load\_utils
+sciquence.load_utils
 :::
 
-sciquence.pipeline module
--------------------------
+## sciquence.pipeline module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence.pipeline
 :::
 
-sciquence.seeker module
------------------------
+## sciquence.seeker module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence.seeker
 :::
 
-sciquence.similarity module
----------------------------
+## sciquence.similarity module
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence.similarity
 :::
 
-Module contents
----------------
+## Module contents
 
 ::: {.automodule members="" undoc-members="" show-inheritance=""}
 sciquence

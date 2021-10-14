@@ -1,11 +1,9 @@
-sciquence.text\_processing
-==========================
+# sciquence.text_processing
 
-Text to vector
---------------
+## Text to vector
 
 ::: {.currentmodule}
-sciquence.text\_processing
+sciquence.text_processing
 :::
 
 ::: {.autosummary toctree=""}

@@ -1,5 +1,4 @@
-Installation
-============
+# Installation
 
 To install current bleeding-edge `sciquence` version, simply use
 command:

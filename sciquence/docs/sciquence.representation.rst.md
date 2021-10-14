@@ -1,8 +1,6 @@
-sciquence.representation
-========================
+# sciquence.representation
 
-Piecewise Aggregate Approximation
----------------------------------
+## Piecewise Aggregate Approximation
 
 ::: {.currentmodule}
 sciquence.representation
@@ -12,8 +10,7 @@ sciquence.representation
 paa
 :::
 
-Symbolic Aggregate Approximation
---------------------------------
+## Symbolic Aggregate Approximation
 
 ::: {.autosummary toctree=""}
 sax

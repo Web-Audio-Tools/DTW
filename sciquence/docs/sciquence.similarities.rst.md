@@ -1,13 +1,11 @@
-sciquence.similarities
-======================
+# sciquence.similarities
 
-Similarities
-------------
+## Similarities
 
 ::: {.currentmodule}
 sciquence.similarities
 :::
 
 ::: {.autosummary toctree=""}
-dtw segmental\_dtw
+dtw segmental_dtw
 :::

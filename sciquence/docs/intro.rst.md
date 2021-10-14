@@ -1,5 +1,4 @@
-Intro
-=====
+# Intro
 
 Sciquence is a python module created especially to work with time series
 and other types of sequences. It mimics scikit-learn API, but introduces
