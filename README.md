@@ -1713,3 +1713,107 @@ References
 [4] <https://riptutorial.com/algorithm/example/24981/introduction-to-dynamic-time-warping>
 
 [5] <http://www.speech.zone/exercises/dtw-in-python/the-final-dtw-code/>
+
+
+---
+---
+# FAQ:
+
+
+Frequently asked questions
+General
+How do I choose a step pattern?
+This question has been raised on Stack Overflow; see here, here and here. A good first guess is symmetric2 (the default), i.e.
+
+         g[i,j] = min(
+             g[i-1,j-1] + 2 * d[i  ,j  ] ,
+             g[i  ,j-1] +     d[i  ,j  ] ,
+             g[i-1,j  ] +     d[i  ,j  ] ,
+         )
+What's all the fuss about normalization? What's wrong with the symmetric1 recursion I found in Wikipedia/in another implementation?
+An alignment computed with a non-normalizable step pattern has two serious drawbacks:
+
+It cannot be meaningfully normalized by timeseries length. Hence, longer timeseries have naturally higher distances, in turn making comparisons impossible.
+It favors diagonal steps, therefore it is not robust: two paths differing for a small local change (eg. horizontal+vertical step rather than diagonal) have very different costs.
+This is discussed in section 3.2 of the JSS paper, section 4.2 of the AIIM paper, section 4.7 of Rabiner and Juang's Fundamentals of speech recognition book, and elsewhere. Make sure you familiarize yourself with those references.
+
+TLDR: just stick to the default symmetric2 recursion and use the value of normalizedDistance.
+
+What about derivative dynamic time warping?
+Use the command diff to preprocess the timeseries.
+
+Why do changes in dist.method appear to have no effect?
+Because it only makes a difference when aligning multivariate timeseries. It specifies the "pointwise" or local distance used (before the alignment) between the query feature vector at time i, query[i,] and the reference feature vector at time j, ref[j,] . Most distance functions coincide with the Euclidean distance in the one-dimensional case. Note the following:
+
+r<-matrix(runif(10),5)  # A 2-D timeseries of length 5
+s<-matrix(runif(10),5)  # Ditto
+
+myMethod<-"Manhattan" # Or anything else
+al1<-dtw(r,s,dist.method=myMethod)              # Passing the two inputs
+al2<-dtw(proxy::dist(r,s,method=myMethod))      # Equivalent, passing the distance matrix
+
+all.equal(al1,al2) 
+
+Can the time/memory requirements be relaxed?
+The first thing you should try is to set the distance.only=TRUE parameter, which skips backtracing and some object copies. Second, consider downsampling the input timeseries.
+
+What is the relation between dist and dtw?
+There are two very different, totally unrelated uses for dist. This is explained at length in the paper, but let's summarize.
+
+If you have two multivariate timeseries, you can feed them to dist to obtain a local distance matrix. You then pass this matrix to dtw(). This is equivalent to passing the two matrices to the dtw() function and specifying a dist.method (see also the next question).
+If you have many univariate timeseries, instead of iterating over all pairs and applying dtw() to each, you may feed the lot (arranged as a matrix) to dist with method="DTW". In this case your code does NOT explicitly call dtw(). This is equivalent to iterating over all pairs; it is also equivalent to using the dtwDist convenience function.
+Clustering
+Can I use the DTW distance to cluster timeseries?
+Of course. You need to start with a dissimilarity matrix, i.e. a matrix holding in i,j the DTW distance between timeseries i and j. This matrix is fed to the clustering functions. Obtaining the dissimilarity matrix is done differently depending on whether your timeseries are univariate or or multivariate: see the next questions.
+
+How do I cluster univariate timeseries of homogeneous length?
+Arrange the timeseries (single-variate) in a matrix as rows. Make sure you use a symmetric pattern. See dtwDist.
+
+How do I cluster multiple multivariate timeseries?
+You have to handle the loop yourself. Assuming you have data arranged as x[time,component,series], pseudocode would be:
+
+ for (i in 1:N) { 
+    for (j in 1:N) { 
+        result[i,j] <- dtw( dist(x[,,i],x[,,j]), 
+                            distance.only=T )$normalizedDistance 
+Can I compute a DTW-based dissimilarity matrix out of timeseries of different lengths?
+Either loop over the inputs yourself, or pad with NAs and use the following code:
+
+    dtwOmitNA <-function (x,y)
+    {
+        a<-na.omit(x)
+        b<-na.omit(y)
+        return(dtw(a,b,distance.only=TRUE)$normalizedDistance)
+    }
+
+    ## create a new entry in the registry with two aliases
+    pr_DB$set_entry(FUN = dtwOmitNA, names = c("dtwOmitNA"))
+
+    d<-dist(dataset, method = "dtwOmitNA") 
+Non-discoveries
+I've discovered a multidimensional/multivariate version of the DTW algorithm! Shall it be included in the package?
+Alas, most likely you haven't. DTW had been "multidimensional" since its conception. Local distances are computed between N-dimensional vectors; feature vectors have been extensively used in speech recognition since the '70s (see e.g. things like MFCC, RASTA, cepstrum, etc). Don't worry: several other people have "rediscovered" multivariate DTW already. The dtw package supports the numerous types of multi-dimensional local distances that the proxy package does, as explained in section 3.6 of the paper in JSS.
+
+I've discovered a realtime/early detection version of the DTW algorithm!
+Alas, most likely you haven't. A natural solution for real-time recognition of timeseries is "unconstrained DTW", which relaxes one or both endpoint boundary conditions. To my knowledge, the algorithm was published as early as 1978 by Rabiner, Rosenberg, and Levinson under the name UE2-1: see e.g. the mini-review in (Tormene and Giorgino, 2008). Feel also free to learn about the clever algorithms or expositions by Sakurai et al. (2007); Latecki (2007); Mori et al. (2006); Smith-Waterman (1981); Rabiner and Schmidt (1980); etc. Open-ended alignments (at one or both ends) are available in the dtw package, as described in section 3.5 of the JSS paper.
+
+I've discovered a bug in your backtrack algorithm!
+Alas, most likely you haven't. You may be doing backtracking via steepest descent. It's not the correct way to do it. Here's a counterexample:
+
+> library(dtw) 
+> dm<-matrix(10,4,4)+diag(rep(1,4))
+> al<-dtw(dm,k=T,step=symmetric2)   
+> al$localCostMatrix
+      [,1] [,2] [,3] [,4]
+[1,]  *11* *10*  10   10
+[2,]   10   11  *10*  10
+[3,]   10   10   11  *10*
+[4,]   10   10   10  *11*
+> al$costMatrix
+      [,1] [,2] [,3] [,4]
+[1,]  >11<  21   31   41
+[2,]   21  >32<  41   51
+[3,]   31   41  >52<  61
+[4,]   41   51   61  >72<
+
+The sum of costs along my warping path (above) is (starting from [1,1]) 11+10+2*10+2*10+11 = 72 which is correct (=g[4,4]) . If you follow your backtracking "steepest descent" algorithm (red), you get the diagonal 11+2*11+2*11+2*11=77 which is wrong.
