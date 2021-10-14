@@ -1,12 +1,10 @@
-Touch signature identification with JavaScript
-==============================================
+# Touch signature identification with JavaScript
 
 Jul 16, 2016[JavaScript](https://gordonlesti.com/tag/javascript/ "Tag JavaScript")
 
 The [uWave: Accelerometer-based Gesture Recognition](http://www.ruf.rice.edu/~mobile/project_uwave.html "Rice Efficient Computing Group: Tempo Mobile Browser Speed") project from the [Rice Efficient Computing Group](http://www.ruf.rice.edu/~mobile/ "Rice Efficient Computing Group") inspired me to build a small real time HTML based signature identification with JavaScript. Actually gestures have not that much incommon with drawn handwriting, but I wanted to test [dynamic-time-warping](https://github.com/GordonLesti/dynamic-time-warping "GordonLesti/dynamic-time-warping: Dynamic time warping for JavaScript") on signatures. I am not sure if there is a real usecase for a signature identification in web applications, but it was fun to build this kind of prototyp. Feedback is welcome.
 
-Signature experiment
---------------------
+## Signature experiment
 
 This small application is not designed and coded best practice. I'm also working on the paramters and the algorithm to improve this tool.
 
@@ -22,8 +20,7 @@ Signature 1
 
 Signature 2
 
-How does that work?
--------------------
+## How does that work?
 
 The following explanation will ignore the painting from the signatures on canvas. More important are the data preparation and evaluation.
 
@@ -80,8 +77,7 @@ var result = result / path.length;
 
 Copy
 
-Example signatures
-------------------
+## Example signatures
 
 Here some example signatures and their distances.
 
