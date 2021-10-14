@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "dtw": "^0.0.3",
-    "dynamic-time-warping": "^1.0.0"
+    "dynamic-time-warping": "^1.0.0",
+    "dynamic-time-warping-2": "^1.1.2",
+    "dynamic-time-warping-ts": "^1.0.0"
   },
   "devDependencies": {
     "semantic-release": "^18.0.0"

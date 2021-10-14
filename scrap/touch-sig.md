@@ -3,6 +3,7 @@
 Jul 16, 2016[JavaScript](https://gordonlesti.com/tag/javascript/ "Tag JavaScript")
 
 The [uWave: Accelerometer-based Gesture Recognition](http://www.ruf.rice.edu/~mobile/project_uwave.html "Rice Efficient Computing Group: Tempo Mobile Browser Speed") project from the [Rice Efficient Computing Group](http://www.ruf.rice.edu/~mobile/ "Rice Efficient Computing Group") inspired me to build a small real time HTML based signature identification with JavaScript. Actually gestures have not that much incommon with drawn handwriting, but I wanted to test [dynamic-time-warping](https://github.com/GordonLesti/dynamic-time-warping "GordonLesti/dynamic-time-warping: Dynamic time warping for JavaScript") on signatures. I am not sure if there is a real usecase for a signature identification in web applications, but it was fun to build this kind of prototyp. Feedback is welcome.
+AWS CloudFormation Sample Template LAMP_Single_Instance: Create a LAMP stack using a single EC2 instance and a local MySQL database for storage. This template demonstrates using the AWS CloudFormation bootstrap scripts to install the packages and files necessary to deploy the Apache web server, PHP and MySQL at instance launch time. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.
 
 ## Signature experiment
 
